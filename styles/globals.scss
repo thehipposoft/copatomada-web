@@ -68,23 +68,6 @@ button, .button {
     color: white;
 }
 
-//Banner
-
-
-.banner-title-mb {
-    position: absolute;
-    left: 5%;
-    top: 4%;
-    z-index: 10;
-    color: white;
-    
-    h1 {
-        display: flex;
-        font-size: 16px;
-    }
-
-}
-
 .image1 {
     background-image: url('/assets/images/banner-bg.jpg');
     opacity: 1;
@@ -188,7 +171,7 @@ button, .button {
 .menu-open {
     transform: translateX(0);
   }
-  
+
 .backdrop {
     display: none;
     position: absolute;
@@ -213,7 +196,7 @@ button, .button {
     transition: background-color 200ms ease-in-out;
     position: relative;
     margin: 25px 0;
-    
+
     h1 {
         font-size: 42px;
         transform: rotate(-90deg);
@@ -232,7 +215,7 @@ button, .button {
         filter: invert(99%) sepia(16%) saturate(2%) hue-rotate(158deg) brightness(113%) contrast(100%);
         position: absolute;
         left: 20px;
-        top: 30px;    
+        top: 30px;
       }
 
 
@@ -298,11 +281,11 @@ button, .button {
         position: relative;
         z-index: 2;
     }
-    
+
     .team-s {
         position: relative;
     }
-    
+
     .team-h1 {
         position: relative;
         z-index: 3;
@@ -312,7 +295,7 @@ button, .button {
 
     &:hover {
         opacity: 1;
-        
+
         .team-h1 {
             color: #FFF;
         }
@@ -417,7 +400,7 @@ button, .button {
 
 .footer-list {
     color: #000;
-    
+
     ul {
         padding: 0 2em;
         display: flex;
@@ -425,7 +408,7 @@ button, .button {
     }
 }
 
-.equipo { 
+.equipo {
     h1 {
         font-size: 36px;
         padding-top: 2em;
@@ -478,14 +461,14 @@ button, .button {
 
 
     .menu-title {
-     font-size: 24px;   
+     font-size: 24px;
     }
 
     .red {
         height: 70px;
         bottom: 0;
         overflow: hidden;
-        
+
         h1 {
             -webkit-text-stroke: 1px white;
             color: transparent;
@@ -530,7 +513,7 @@ button, .button {
     .close-svg-modal {
         top: 20px;
     }
-    
+
     .menudark {
         background-color: #000;
     }

@@ -1,6 +1,5 @@
 'use client'
-import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
 const Banner = () => {
@@ -24,18 +23,18 @@ const Banner = () => {
         <Link href={'https://pedix.app/copa-tomada/'} rel='noreferrer' target='_blank' className='button cursor-pointer bottom-8 left-0 right-0 z-20 absolute mx-auto w-32 hover:bg-transparent hover:text-white'>
           Pedi YA
         </Link>
-        <video 
-          src='/assets/video/home_copa.mp4' 
+        <video
+          src='/assets/video/home_copa.mp4'
           autoPlay
           muted
           loop
           id={'video'}
           className={'w-full'}
-        />  
+        />
       </div>
       <div className='md:hidden h-screen relative'>
-        <video 
-          src='/assets/video/home-mobile3.mp4' 
+        <video
+          src='/assets/video/home-mobile3.mp4'
           autoPlay
           muted
           loop
