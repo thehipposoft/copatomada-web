@@ -1,9 +1,86 @@
 import './globals.css'
+import Script from 'next/script';
+import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { ThemeProvider } from "./theme-provider";
 import { ThemeContextProvider } from './context/theme';
 
 const inter = Inter({ subsets: ['latin'] })
+
+const siteUrl = 'https://copatomada.com.ar';
+const siteName = 'Copa Tomada';
+const defaultDescription =
+  'Somos un negocio de ventas de bebidas en Nueva Cordoba. Pedi lo que quieras y te lo llevamos.';
+const socialImage = '/assets/logoheader.png';
+
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  viewportFit: 'cover',
+  themeColor: '#000000',
+};
+
+export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: siteName,
+    template: `%s | ${siteName}`,
+  },
+  description: defaultDescription,
+  applicationName: siteName,
+  referrer: 'origin-when-cross-origin',
+  keywords: [
+    'copa tomada',
+    'bebidas nueva cordoba',
+    'delivery de bebidas',
+    'trago y cerveza',
+    'nueva cordoba',
+    'cordoba',
+  ],
+  authors: [{ name: siteName, url: siteUrl }],
+  creator: siteName,
+  publisher: siteName,
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
+  },
+  alternates: {
+    canonical: '/',
+  },
+  icons: {
+    icon: socialImage,
+    shortcut: socialImage,
+    apple: socialImage,
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'es_AR',
+    url: siteUrl,
+    siteName,
+    title: siteName,
+    description: defaultDescription,
+    images: [
+      {
+        url: socialImage,
+        alt: 'Logo de Copa Tomada',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: siteName,
+    description: defaultDescription,
+    images: [socialImage],
+  },
+  category: 'food',
+};
 
 export default function RootLayout({
   children,
@@ -11,20 +88,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="es-AR">
         <head>
-          <title>Copa Tomada</title>
-          <meta name='viewport' content='minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=no, viewport-fit=cover' />
-          <meta name="theme-color" content="#000000" />
-          <meta
-              name="description"
-              content="Somos un negocio de ventas de bebidas en Nueva Córdoba. ¡Pedí lo que quieras y te lo llevamos!"
-          />
-          <meta property='og:type' content='website' />
-          <meta property='og:title' content='Copa Tomada' />
-          <meta property='og:image' content='https://copatomada.com.ar/assets/logoheader.png' />
-          <meta property='og:description' content="Somos un negocio de ventas de bebidas en Nueva Córdoba. ¡Pedí lo que quieras y te lo llevamos!" />
-          <meta property='og:site_name' content='Copa Tomada' />
           <script type="application/ld+json"
               dangerouslySetInnerHTML={{
                   __html: `{
@@ -48,26 +113,27 @@ export default function RootLayout({
                   }`,
               }}
           />
-          <script
-              async
-              src="https://www.googletagmanager.com/gtag/js?id=G-B1NV5N5JSV"
-          />
-          <script
-              dangerouslySetInnerHTML={{
-                  __html: `
-                      window.dataLayer = window.dataLayer || [];
-                      function gtag(){dataLayer.push(arguments);}
-                      gtag('js', new Date());
-                      gtag('config', 'G-B1NV5N5JSV', {
-                        page_path: window.location.pathname,
-                      });
-                    `,
-              }}
-          />
-      </head> 
-      <body 
+      </head>
+      <body
         className={`${inter.className} bg-slate-50 dark:bg-[#0d1117]`}
       >
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-B1NV5N5JSV"
+        />
+        <Script
+          id="gtag-init"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-B1NV5N5JSV', {
+                page_path: window.location.pathname,
+              });
+            `,
+          }}
+        />
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <ThemeContextProvider>
             {children}
